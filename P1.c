@@ -8,8 +8,7 @@ int main()
 	int estado = 0, i;
 	char bits[15];
 	printf("Digite um numero valido(somente 1s e 0s): ");
-	fflush(stdin);
-	gets(bits);
+	fgets(bits, 15, stdin);
 	while(bits[i] != '\0')
 	{
 		if(estado == 0 && bits[i] == '0')
