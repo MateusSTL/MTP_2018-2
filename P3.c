@@ -4,15 +4,15 @@
 
 #include <stdio.h>
 
-int main() 
-{
-	char numero[20];
-	int i;
-	fgets(numero, 20, stdin);
-	for(i = 0; numero[i] != '\0'; i++)
-	{
-		if(numero[i] <= ('9' - '0') && numero[i] >= ('0' - '0'))
-		    printf("%s", numero[i]);
-	}
-	return 0;
+int main(){
+   int dec, i=0;
+   char bits[256];
+   scanf("%s", bits);
+   for(;bits[i];i++){
+     if(bits[i]>='0'&&bits[i]<='9'){
+       dec=dec*10+(bits[i]-'0');
+     }
+   }
+   printf("\"%s\" retorna \"%i\"\n", bits, dec);
+   return 0;
 }
