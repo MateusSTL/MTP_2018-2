@@ -5,49 +5,20 @@
 
 int main() 
 {
-	int estado = 0, i;
-	char bits[15];
-	printf("Digite um numero valido(somente 1s e 0s): ");
-	fgets(bits, 15, stdin);
-	while(bits[i] != '\0')
+	int estado =0, i;
+	char numero[256];
+	scanf("%s", numero);
+	for(i = 0; numero[i]; i++)
 	{
-		if(estado == 0 && bits[i] == '0')
-		    {
-			    estado = 0;
-			    i++;
-			}
-		else
-		    {
-			    estado = 1;
-			    i++;
-			}
-		if(estado == 1 && bits[i] == '0')
-		    {
-			    estado = 2;
-			    i++;
-			}
-		else if(estado == 1 && bits[i] != '0')
-		    {
-			    estado = 0;
-			    i++;
-			}
-		if(estado == 2 && bits[i] == '0')
-			{
-			    estado = 1;
-			    i++;
-			}
-		else if(estado == 2 && bits[i] != '0')
-		    {
-			    estado = 2;
-				i++;
-			}
-		if(bits[i] != '0' && bits[i] != '1')
-		     i++;		    
+		if(estado == 0 && numero[i] == '1') 
+		    estado = 1;
+		else if(estado == 1)
+		{
+			estado = (numero[i] == '0')? 2:0;
+		}
+		else if(estado == 2 && numero[i] == '0') 
+		    estado = 1;
 	}
-	printf("\nSua sequencia original eh: %s", bits);
-	if(estado == 0)
-	    printf("\nSeu numero eh multiplo de 3.");
-	else
-	    printf("\nSeu numero nao eh multiplo de 3.");
+	printf("\"%s\" %s", numero, estado == 0? "e multiplo de 3\n":"nao e\n");
 	return 0;
 }
