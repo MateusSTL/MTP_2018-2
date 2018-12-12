@@ -4,20 +4,22 @@
 
 #include <stdio.h>
 
-double Ackermann(double m, double n)
-{
-   if(m==0) 
-        return n+1;
-   else if(m>0 && n==0) 
-        Ackermann(m-1,1);
-   else if(m>0 && n>0) 
-        Ackermann(m-1, Ackermann(m, n-1));
-}
+double Ackermann(double a, double b);
 
 int main()
 {
-   double m, n;
-   scanf("%lf+%lf", &m, &n);
-   printf("\"%g\" + \"%g\" resulta em \"%g\"\n", m, n, Ackermann(m,n));
+   double a, b;
+   scanf("%lf%lf", &a, &b);
+   printf("\"%g\" + \"%g\" resulta em \"%g\"\n", a, b, Ackermann(a,b));
    return 0;
+}
+
+double Ackermann(double a, double b)
+{
+   if(a==0)
+        return b+1;
+   else if(a > 0 && b == 0) 
+        Ackermann(a-1,1);
+   else if(a > 0 && b > 0) 
+        Ackermann(a-1, Ackermann(a, b-1));
 }
