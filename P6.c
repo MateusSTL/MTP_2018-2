@@ -5,29 +5,28 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <math.h>
-#define pi 3.14159265359
-#define r 1
-
 typedef struct 
 {
-  float x, y;
-}Ponto;
+ 	double *x,*y;
+}Pont;
 
 int main()
-{
-   int N, i;
-   Ponto *xy;
-   scanf("%i", &N);
-   getchar();
-   xy= (Ponto *) malloc(N*sizeof(Ponto));
-   printf("%i retorna \" ",N);
-   for(i=0; i<N; i++)
-   {
-        xy->x= r*cos(i*2*pi/(N));
-        xy->y= r*sin(i*2*pi/N);
-        printf("(%.3f, %.3f) ", xy->x, xy->y);
-   }
-   printf("\" ");
-   free(xy);
-   return 0;
+{	
+	int n, i;
+	Pont p;
+	scanf("%d",&n);
+	fflush(stdin);
+	p.x = calloc(n,sizeof(double ) );
+	p.y= calloc(n,sizeof(double ) );
+	for(i=0;i<n;i++)
+  {
+		    p.x [i]= cos(i*2.0*M_PI/(n-1));
+       	p.y[i] = sin(i*2.0*M_PI/(n-1));
+	}
+	for(i=0;i<n;i++)
+  {
+		    printf("%.3lf,%.3lf\n",p.x[i],p.y[i]);
+	}
+	free(p.x);
+	free(p.y);
 }
