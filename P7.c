@@ -1,3 +1,7 @@
+/* P6.c */
+/* Mateus Santos Tornilio Lemos */
+/* 11811EEL006 */
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <math.h>
